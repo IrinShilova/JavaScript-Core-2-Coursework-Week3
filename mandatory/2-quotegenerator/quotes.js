@@ -1,3 +1,9 @@
+// The code is bellow the array "quotes" definition, in the end of the page
+
+
+
+
+
 // DO NOT EDIT BELOW HERE
 
 // A function which will return one item, at
@@ -23,6 +29,8 @@ function pickFromArray(choices) {
 
 // A list of quotes you can use in your app.
 // Feel free to edit them, and to add your own favourites.
+
+
 const quotes = [
   {
     quote: "Life isn’t about getting and having, it’s about giving and being.",
@@ -490,3 +498,21 @@ const quotes = [
     author: "Zig Ziglar",
   },
 ];
+
+
+const quoteDiv = document.getElementById("quote1");
+
+let ourQuote = document.createElement("p"); //<p></p>
+
+const randomQuote = pickFromArray(quotes); // it will be object {quote: "text", author: "name"}
+console.log(randomQuote.quote);
+console.log(randomQuote.author);
+ourQuote.innerText = `${randomQuote.quote}, said by ${randomQuote.author}`;
+
+quoteDiv.appendChild(ourQuote);
+
+const ourButton = document.getElementById("button");
+ourButton.addEventListener("click", () => {
+  const typeYourNewThing = pickFromArray(quotes);
+  ourQuote.innerText = `${typeYourNewThing.quote}, said by ${typeYourNewThing.author}`;
+});
